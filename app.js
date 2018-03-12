@@ -8,6 +8,7 @@ var topic = ["cat", "dog", "horse", "pig"];
 
 // functions
 function createButton(){
+    $("#buttons").empty();
 for (var i=0; i<topic.length; i++) {
     var newButton = $("<button id='animals'>");
     newButton.val(topic[i]);
@@ -19,13 +20,12 @@ $("#buttons").on("click","#animals", function animal(){
     $("#image-place").empty();
     var animal = $(this).val();
     console.log(animal);
-    var queryURL =" http://api.giphy.com/v1/gifs/search?q="+animal +"&api_key=uvMzqP4htDb03CqytfpkBbkuGbBVLLj9&limit=3"
+    var queryURL =" http://api.giphy.com/v1/gifs/search?q="+animal +"&api_key=uvMzqP4htDb03CqytfpkBbkuGbBVLLj9&limit=10"
     $.ajax({
         url: queryURL,
         method: "GET"
     })
     .then(function(response){
-        console.log(response);
         var results = response.data;
         for (var i=0; i<results.length; i++){
             var gifDiv = $("<div class='complete'>");
@@ -37,28 +37,40 @@ $("#buttons").on("click","#animals", function animal(){
             topicImage.attr("data-animate", results[i].images.fixed_height.url);
             topicImage.attr("data-state", "still");
             topicImage.attr("class", "gif");
+            console.log(topicImage);
 
             gifDiv.prepend(ratingP);
             gifDiv.prepend(topicImage);
 
             $("#image-place").prepend(gifDiv);
         }
-})
+    });
+});
 
-function submit(){
-    ("#submitButton").on("click", function(){
-        event.preventDefault();
-        var userInputVal = $("#user-input").val();
-        console.log(userInputVal);
-        topic.push(userInputVal);
-        createButton();
+$("#image-place").on("click", ".gif", function() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else{
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+});
 
 
 
 
-    })
-}
-})
+
+
+
+$("#submit-button").on("click", function(event){
+    event.preventDefault();
+    var userInputVal = $("#user-input").val().trim();
+    console.log(userInputVal);
+    topic.push(userInputVal);
+    createButton();
+});
 
 // psudocode
 // ** make an array for the topic
