@@ -10,7 +10,7 @@ var topic = ["cat", "dog", "horse", "pig"];
 function createButton(){
     $("#buttons").empty();
 for (var i=0; i<topic.length; i++) {
-    var newButton = $("<button id='animals'>");
+    var newButton = $("<button class='btn btn-sm btn-info' id='animals'>");
     newButton.val(topic[i]);
     newButton.text(topic[i]);
     $("#buttons").append(newButton);

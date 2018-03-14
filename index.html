@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Amazing Animals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    
-    <div id="buttons"></div>
-
+    <div class="container">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h2>Animal Gifs</h2> 
+            <h3>click on a magical animal button below</h3>    
+        </div>
+        <div class="panel-body">
+            <div id="buttons"></div>
+    </div>
+</div>
         <form>
-            Add an Animal
+            <h4>Add A New Animal To The List!</h4>
             <input type="text" id="user-input">
-            <input type="submit" class="submit-button" id="submit-button">
+            <input type="submit" class="btn btn-sm btn-warning" id="submit-button">
         </form>
 
     <div id="image-place"></div>
@@ -23,6 +32,12 @@
 
 
 
+
+
+
+
+
+</div>
 
     <script src="app.js"></script>
 </body>
