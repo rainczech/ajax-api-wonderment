@@ -20,7 +20,7 @@ $("#buttons").on("click","#animals", function animal(){
     $("#image-place").empty();
     var animal = $(this).val();
     console.log(animal);
-    var queryURL =" http://api.giphy.com/v1/gifs/search?q="+animal +"&api_key=uvMzqP4htDb03CqytfpkBbkuGbBVLLj9&limit=10"
+    var queryURL =" https://api.giphy.com/v1/gifs/search?q="+animal +"&api_key=YOYA8G6KlnPgndOHh6MdNFaw0WyCRqqm&limit=10"
     $.ajax({
         url: queryURL,
         method: "GET"
