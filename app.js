@@ -1,10 +1,6 @@
 // variables
 
-
-
 var topic = ["cat", "dog", "horse", "pig"];
-
-
 
 // functions
 function createButton(){
@@ -58,12 +54,6 @@ $("#image-place").on("click", ".gif", function() {
       }
 });
 
-
-
-
-
-
-
 $("#submit-button").on("click", function(event){
     event.preventDefault();
     var userInputVal = $("#user-input").val().trim();
@@ -71,19 +61,6 @@ $("#submit-button").on("click", function(event){
     topic.push(userInputVal);
     createButton();
 });
-
-// psudocode
-// ** make an array for the topic
-// ** make a for loop that cycles through the array and creates a button with the array item
-// ** make api key for giphy
-// ** make the correct "query URL" to get 10 images with appropriate rating
-
-
-
-
-
-
-
 
 
 
